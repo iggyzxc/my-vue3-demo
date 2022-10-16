@@ -1,43 +1,41 @@
 <template>
-    <br/>
-    <v-card
-    class="mx-auto"
-    max-width="600">
-    
-    
-    <v-card-title>Questions and Answer</v-card-title>
-     
-            <v-btn class="mx-2" color="primary" @click="getQuestions">Show</v-btn><br/>
-            
-            <v-list-item
-                    v-for="question in questions"
-                    :key="question.id"
-                    >
-                    <v-list-item>{{ question.question }}</v-list-item>
-                    <v-list-item>
-                        {{question.correct_answer}}
-                    </v-list-item>
-            </v-list-item>
+
+
+
+    <v-card>
+        <v-card-text>
+            <p>{{ covidData.confirmed }}</p>
+        </v-card-text>
     </v-card>
+
             </template>
             
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
-const questions=ref([])
+const covidData = ref([])
 
-async function getQuestions () {
-    axios.get('https://opentdb.com/api.php?amount=10&category=23&difficulty=easy&type=multiple').then( response => {
-        questions.value=(response.data.results)
-    })
-    
-}
+async function getCovidData () {
+       axios({
+                method: 'get',
+                url: 'https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/total?country=Philippines',
+                params: {'country': 'Philippines'},
+                headers: {
+                          'X-RapidAPI-Key': '1b76060411mshab2b0bac9626382p169b3ejsn96afb1e43f2f',
+                          'X-RapidAPI-Host': 'covid-19-coronavirus-statistics.p.rapidapi.com'
+                        }  
+            }).then( response => {
+        covidData.value=(response.data.data)
+        console.log(covidData.value)
+      })
+  
+  }
+
+   onMounted( async () => {
+       await getCovidData()
+   })
 
 </script>
 
-<style scoped>
-
-</style>
-    
     
