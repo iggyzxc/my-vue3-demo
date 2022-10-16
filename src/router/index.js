@@ -1,20 +1,82 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Dashboard from '../views/Dashboard.vue'
+import CalculatorView from '../views/CalculatorView.vue'
+import StringManView from '../views/StringManView.vue'
+import AreaView from '../views/AreaView.vue'
+import Rectangle from '../components/shapes/Rectangle.vue'
+import Square from '../components/shapes/Square.vue'
+import Triangle from '../components/shapes/Triangle.vue'
+import Circle from '../components/shapes/Circle.vue'
+import VuetifyView from '../views/VuetifyView.vue'
+import CompApiView from '../views/CompApiView.vue'
+import Axiosview from '../views/Axiosview.vue'
+
+
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: Dashboard
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/calculatorView',
+    name: 'calculatorView',
+    component: CalculatorView
+  },
+  {
+  path: '/stringManView',
+  name: 'stringManView',
+  component: StringManView
+  },
+  {
+    path: '/areaView',
+    name: 'areaView',
+    component: AreaView,
+    children: [
+      {
+        path: '/rectangle',
+        name: 'rectangle',
+        component: Rectangle
+      },
+      {
+        path: '/square',
+        name: 'square',
+        component: Square
+      },
+      {
+        path: '/triangle',
+        name: 'triangle',
+        component: Triangle
+      },
+      {
+        path: '/circle',
+        name: 'circle',
+        component: Circle
+      },
+    ]
+  },
+  {
+    path: '/vuetifyView',
+    name: 'VuetifyView',
+    component: VuetifyView
+  },
+  {
+    path: '/compApiView',
+    name: 'compApiView',
+    component: CompApiView
+  },
+  {
+    path: '/axiosview',
+    name: 'axiosview',
+    component: Axiosview
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: Dashboard
+  },
+
 ]
 
 const router = createRouter({
