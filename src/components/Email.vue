@@ -1,37 +1,78 @@
 <!-- eslint-disable -->
+
 <template>
-    <div class="container" style="color:black;">
-        <form @submit.prevent="sendMail">
-        <label>Name</label>
-        <input 
-            type="text" 
-            v-model="name"
-            name="name"
-            placeholder="Your Name"
-            style="color:black;"
-        >
-        <label>Email</label>
-        <input 
-            type="email" 
-            v-model="email"
-            name="email"
-            placeholder="Your Email"
-            style="color:black;"
+    <v-card 
+        class="mx-auto my-3 description"
+        elevation="5"
+        max-width="500"
+        outlined>
+        <v-card-title class="text-center my-3">
+            <h4>Send a message</h4>
+          </v-card-title>
+        <v-form
+        class="mx-5 my-5"
+        ref="form"
+        v-model="valid"
+        @submit.prevent="sendMail"
+        lazy-validation
             >
-        <label>Message</label>
-        <textarea 
-            name="message"
-            v-model="message"
-            cols="30" rows="5"
-            placeholder="Message"
-            style="color:black;"
-            >
-        </textarea>
+            <v-text-field
+                type="text"
+                v-model="name"
+                name="name"
+                :counter="10"
+                :rules="nameRules"
+                label="Name"
+                color="secondary"
+                required
+            ></v-text-field>
         
-        <input type="submit" value="Send">
-        </form>
-    </div>
-</template>
+            <v-text-field
+                type="email"
+                v-model="email"
+                name="email"
+                :rules="emailRules"
+                label="E-mail Address"
+                color="secondary"
+                required
+            ></v-text-field>
+
+            <v-textarea
+                filled
+                name="message"
+                v-model="message"
+                label="Message"
+                cols="30" rows="5"
+                color="secondary"
+                
+            ></v-textarea>
+        
+            <div class="text-center">
+                <v-hover v-slot="{ hover }">
+                
+                    <v-btn
+                    class="mr-4"
+                    type="submit" 
+                    value="Send"
+                    :disabled="!valid"
+                    @click="validate"
+                    :style="{
+                            'background-color': hover ? 'inherit' : 'aqua',
+                        }"
+                    :ripple="{ center: true }"
+                    
+                    elevation="4"
+                    plain
+                    rounded
+                    >
+                    submit
+                    </v-btn>
+                </v-hover>
+
+            </div>
+        </v-form>
+    </v-card>
+  </template>
 
 <script>
 import emailjs from 'emailjs-com';
@@ -40,8 +81,16 @@ export default {
   data() {
     return {
       name: '',
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 10) || 'Name must be less than or equal to 10 characters',
+      ],
       email: '',
-      message: ''
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+      ],
+      message: '',
     }
   },
   methods: {
@@ -61,49 +110,37 @@ export default {
       this.name = ''
       this.email = ''
       this.message = ''
+      this.nameRules = []
+      this.emailRules = []
     },
   }
 }
 </script>
 
 <style scoped>
-* {box-sizing: border-box;}
-
-.container {
-  display: block;
-  margin:auto;
+.description {
   text-align: center;
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-  width: 50%;
+  font-size: 15px;
 }
 
-label {
-  float: left;
+h4 {
+  font-weight: 350;
 }
 
-input[type=text], [type=email], textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
+button:hover,
+button:focus {
+  color: rgb(30, 89, 156);
 }
 
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+button {
+  text-decoration: none;
+
+  font-weight: 550;
+  color: black;
+
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
+button:disabled {
+    color: rgb(22, 22, 22);
 }
 </style>

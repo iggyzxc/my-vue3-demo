@@ -11,7 +11,7 @@
     </v-app-bar>
     
 
-    <v-navigation-drawer v-model="drawer" absolute temporary ref="inner_nav">
+    <v-navigation-drawer v-model="drawer" absolute temporary ref="inner_nav" style="position:fixed;">
       <v-list-item>
         <v-list-item-avatar>
           <a
@@ -50,7 +50,7 @@
         :to="item.path"
         :prepend-icon="item.icon"
         icon
-        class="grey lighten-4 mx-6 my-1 hover item-icon"
+        class="grey lighten-4 mx-5 my-1 hover item-icon"
       >
         <v-list-item-title class="item-text">{{ item.title }}</v-list-item-title>
       </v-list-item>
@@ -162,4 +162,6 @@ a {
 .item-text {
   font-size: 15px;
 }
+
+
 </style>
