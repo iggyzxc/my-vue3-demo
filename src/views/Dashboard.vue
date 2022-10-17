@@ -10,21 +10,26 @@
         outlined
       >
           <div>
-            <v-card-title class="text-center mt-3" >
+            <v-card-title class="text-center mt-3">
               <h3>Welcome</h3>
             </v-card-title>
-            <br/>
-            <v-card-text class="text-center">
+            <v-card-subtitle class="text-center">
               <h4>
                 This is a vue web application created for demonstration purposes.
               </h4>
+            </v-card-subtitle>
+            <v-col>
+              <v-card-text class="mt-1 mx-2 description">
+              <p>
+                Vue (pronounced /vjuː/, like view) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS and JavaScript, and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be it simple or complex.
+              </p>
             </v-card-text>
-            <br />
+            </v-col>
           </div>
         </v-card>
       </div>
     </v-col>
-   <Email/>
+  <Email/>
   </v-container>
 </template>
 
@@ -35,15 +40,21 @@ import Email from '../components/Email.vue';
 
 <style scoped>
 .description {
-  text-align: center;
   font-size: 15px;
+  text-align: justify;
 }
 
 h3 {
   font-weight: 500;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
 }
+
 h4 {
   font-weight: 350;
+}
+
+p {
+  text-indent: 30px;
+  font-weight: 300;
 }
 </style>

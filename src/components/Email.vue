@@ -49,26 +49,21 @@
         
             <div class="text-center">
                 <v-hover v-slot="{ hover }">
-                
                     <v-btn
                     class="mr-4"
                     type="submit" 
                     value="Send"
                     :disabled="!valid"
                     @click="validate"
-                    :style="{
-                            'background-color': hover ? 'inherit' : 'aqua',
-                        }"
+                    :style="{'background-color': hover ? 'inherit' : 'aqua'}"
                     :ripple="{ center: true }"
-                    
-                    elevation="4"
+                     elevation="4"
                     plain
                     rounded
                     >
                     submit
                     </v-btn>
                 </v-hover>
-
             </div>
         </v-form>
     </v-card>
@@ -125,6 +120,7 @@ export default {
 
 h4 {
   font-weight: 350;
+  letter-spacing: 4px;
 }
 
 button:hover,

@@ -74,7 +74,6 @@ h3 {
   text-align: justify;
   font-size: 15px;
 }
-
 .hover:hover {
   color: aqua;
   text-shadow:0px 0px 10px aqua;
