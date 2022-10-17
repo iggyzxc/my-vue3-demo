@@ -9,7 +9,7 @@ import Triangle from '../components/shapes/Triangle.vue'
 import Circle from '../components/shapes/Circle.vue'
 import VuetifyView from '../views/VuetifyView.vue'
 import CompApiView from '../views/CompApiView.vue'
-import Axiosview from '../views/Axiosview.vue'
+import AxiosView from '../views/AxiosView.vue'
 
 
 
@@ -69,7 +69,7 @@ const routes = [
   {
     path: '/axiosview',
     name: 'axiosview',
-    component: Axiosview
+    component: AxiosView
   },
   {
     path: '/dashboard',
