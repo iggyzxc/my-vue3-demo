@@ -6,8 +6,6 @@
         max-width="1000"
         outlined
     >
-
-    
         <v-card-title class="text-center mt-3">
             <a
             :href="'//' + 'coingecko.com/'"
@@ -65,8 +63,8 @@
 </template>
             
 <script setup>
-import axios from 'axios';
 import { ref, onMounted } from 'vue';
+import axios from 'axios';
 
 const cryptoData = ref([]);
 var stringifyJSON = ref("");
