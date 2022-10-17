@@ -4,12 +4,10 @@
       <v-app-bar-nav-icon class="hamburger-color" @click="toggleDrawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="t-color">
         <router-link to="/">
-          <span class="font-weight-light">Integrative Programming and Technologies 2 </span>
-        <span>Demonstration</span>
+          <span class="font-weight-light">Integrative Programming and Technologies 2 </span><span>Demonstration</span>
         </router-link>   
       </v-toolbar-title>
     </v-app-bar>
-    
 
     <v-navigation-drawer v-model="drawer" absolute temporary ref="inner_nav" style="position:fixed;">
       <v-list-item>
