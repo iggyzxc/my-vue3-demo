@@ -97,6 +97,7 @@ export default {
           email: this.email,
           message: this.message
         })
+        window.alert("Your message has been sent! Have a nice day!")
 
       } catch(error) {
           console.log({error})

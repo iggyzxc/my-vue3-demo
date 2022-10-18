@@ -19,12 +19,12 @@
             target="_blank"
           >
             <v-img
-              src="src\assets\circle-profile-photo.png"
+              src="https://i.ibb.co/Hrzq6Rp/circle-profile-photo.png"
               alt="Iggy"
               class="my-2"
               max-height="120"
-            ></v-img
-          ></a>
+            ></v-img>
+          </a>
         </v-list-item-avatar>
 
         <v-list-item-content>
@@ -75,8 +75,8 @@
 <script setup>
 import { ref } from "vue";
 
-const drawer = ref(false);
 
+const drawer = ref(false);
 const items = ref([
   { 
     title: "Home", icon: "mdi-home", path: "/" 
