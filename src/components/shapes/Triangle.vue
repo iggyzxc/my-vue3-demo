@@ -48,6 +48,7 @@
                   <v-text-field
                     v-model.number="num2"
                     @keypress="numbersOnly"
+                    type = "number"
                     color="triangleColor"
                     label="Enter height here..."
                     prepend-icon="mdi-numeric"
