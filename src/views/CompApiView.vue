@@ -67,7 +67,7 @@ p {
 }
 
 h3 {
-  font-weight: 550;
+  font-weight: 500;
   letter-spacing: 4px;
 }
 .description {

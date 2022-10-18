@@ -36,6 +36,7 @@
                  <v-text-field
                    v-model.number="num"
                    @keypress="numbersOnly"
+                   type = "number"
                    color="circleColor"
                    label="Enter radius here..."
                    prepend-icon="mdi-numeric"

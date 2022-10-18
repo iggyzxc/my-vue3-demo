@@ -36,6 +36,7 @@
                  <v-text-field
                    v-model.number="num1"
                    @keypress="numbersOnly"
+                   type = "number"
                    color="triangleColor"
                    label="Enter base here..."
                    prepend-icon="mdi-numeric"

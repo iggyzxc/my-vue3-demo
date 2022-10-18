@@ -37,6 +37,7 @@
                  <v-text-field
                    v-model.number="num1"
                    @keypress="numbersOnly"
+                   type = "number"
                    color="secondary"
                    label="Enter number here..."
                    prepend-icon="mdi-numeric"
@@ -46,6 +47,7 @@
                   <v-text-field
                     v-model.number="num2"
                     @keypress="numbersOnly"
+                    type = "number"
                     color="secondary"
                     label="Enter number here..."
                     prepend-icon="mdi-numeric"
@@ -301,6 +303,5 @@ h4 {
 .v-leave-to {
   opacity: 0;
 }
-
 
 </style>

@@ -57,4 +57,13 @@ import Footer from './components/Footer.vue';
     background: linear-gradient(70deg, rgba(0, 255, 255, 0.863)  40%, transparent 40%);
     background-attachment: fixed;
   }
+
+
+  /* removes the arrows */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
 </style>
