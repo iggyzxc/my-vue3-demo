@@ -1,72 +1,76 @@
 <!-- eslint-disable -->
 
 <template>
-    <v-card 
-        class="mx-auto my-3 description"
-        elevation="5"
-        max-width="500"
-        outlined>
-        <v-card-title class="text-center my-3">
-            <h4>Send a message</h4>
-          </v-card-title>
-        <v-form
-        class="mx-5 my-5"
-        ref="form"
-        v-model="valid"
-        @submit.prevent="sendMail"
-        lazy-validation
-            >
-            <v-text-field
-                type="text"
-                v-model="name"
-                name="name"
-                :counter="10"
-                :rules="nameRules"
-                label="Name"
-                color="secondary"
-                required
-            ></v-text-field>
-        
-            <v-text-field
-                type="email"
-                v-model="email"
-                name="email"
-                :rules="emailRules"
-                label="E-mail Address"
-                color="secondary"
-                required
-            ></v-text-field>
+    <v-container class="mt-10">
 
-            <v-textarea
-                filled
-                name="message"
-                v-model="message"
-                label="Message"
-                cols="30" rows="5"
-                color="secondary"
-                
-            ></v-textarea>
-        
-            <div class="text-center">
-                <v-hover v-slot="{ hover }">
-                    <v-btn
-                    class="mr-4"
-                    type="submit" 
-                    value="Send"
-                    :disabled="!valid"
-                    @click="validate"
-                    :style="{'background-color': hover ? 'inherit' : 'aqua'}"
-                    :ripple="{ center: true }"
-                     elevation="4"
-                    plain
-                    rounded
-                    >
-                    submit
-                    </v-btn>
-                </v-hover>
-            </div>
-        </v-form>
-    </v-card>
+    
+      <v-card 
+          class="mx-auto mt-9 description"
+          elevation="5"
+          max-width="500"
+          outlined>
+          <v-card-title class="text-center mt-8">
+              <h4>Send a message</h4>
+            </v-card-title>
+          <v-form
+          class="mx-5 my-5"
+          ref="form"
+          v-model="valid"
+          @submit.prevent="sendMail"
+          lazy-validation
+              >
+              <v-text-field
+                  type="text"
+                  v-model="name"
+                  name="name"
+                  :counter="10"
+                  :rules="nameRules"
+                  label="Name"
+                  color="secondary"
+                  required
+              ></v-text-field>
+          
+              <v-text-field
+                  type="email"
+                  v-model="email"
+                  name="email"
+                  :rules="emailRules"
+                  label="E-mail Address"
+                  color="secondary"
+                  required
+              ></v-text-field>
+
+              <v-textarea
+                  filled
+                  name="message"
+                  v-model="message"
+                  label="Message"
+                  cols="30" rows="5"
+                  color="secondary"
+                  
+              ></v-textarea>
+          
+              <div class="text-center">
+                  <v-hover v-slot="{ hover }">
+                      <v-btn
+                      class="mr-4"
+                      type="submit" 
+                      value="Send"
+                      :disabled="!valid"
+                      @click="validate"
+                      :style="{'background-color': hover ? 'inherit' : 'aqua'}"
+                      :ripple="{ center: true }"
+                      elevation="4"
+                      plain
+                      rounded
+                      >
+                      submit
+                      </v-btn>
+                  </v-hover>
+              </div>
+          </v-form>
+      </v-card>
+    </v-container>
   </template>
 
 <script>

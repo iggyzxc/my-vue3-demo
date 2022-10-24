@@ -18,6 +18,7 @@ import { createVuetify } from 'vuetify'
               tertiary: '#967E76',
               button: '#A9A9A9',
               result: '#00FFFF',
+              quizColor: '#004c4d',
               rectangleColor:'#FF3131',
               squareColor:'#33db14',
               triangleColor:'#e3d61b',

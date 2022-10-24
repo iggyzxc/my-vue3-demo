@@ -1,7 +1,7 @@
 <template>
-  <v-container class="mt-6">
+  <v-container class="mt-10">
     <v-card
-    class="mx-auto my-15"
+    class="mx-auto mt-n7"
     elevation="5"
     max-width="500"
     outlined

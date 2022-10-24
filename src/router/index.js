@@ -10,6 +10,7 @@ import Circle from '../components/shapes/Circle.vue'
 import VuetifyView from '../views/VuetifyView.vue'
 import CompApiView from '../views/CompApiView.vue'
 import AxiosView from '../views/AxiosView.vue'
+import QuizAppView from '../views/QuizAppView.vue'
 
 
 
@@ -70,6 +71,11 @@ const routes = [
     path: '/axiosview',
     name: 'axiosview',
     component: AxiosView
+  },
+  {
+    path: '/quizappview',
+    name: 'quizappview',
+    component: QuizAppView
   },
   {
     path: '/dashboard',

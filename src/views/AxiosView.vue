@@ -6,7 +6,7 @@
         max-width="1000"
         outlined
     >
-        <v-card-title class="text-center mt-3">
+        <v-card-title class="text-center mt-6">
             <a
             :href="'//' + 'coingecko.com/'"
             target="_blank"
@@ -95,9 +95,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
-h3 {
-  font-weight: 600;
+a {
+  font-weight: 500;
   letter-spacing: 4px;
+
 }
 .table {
     font-family: Arial;

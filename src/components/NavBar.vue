@@ -91,13 +91,7 @@ const items = ref([
     title: "Area Calculator", icon: "mdi-calculator", path: "/areaView"
   },
   { 
-    title: "Vuetify", icon: "mdi-vuetify", path: "/vuetifyView" 
-  },
-  { 
-    title: "Composition API", icon: "mdi-api", path: "/compApiView" 
-  },
-  { 
-    title: "Axios", icon: "mdi-alpha-a", path: "/axiosView" 
+    title: "Quiz App", icon: "mdi-alpha-a", path: "/quizAppView" 
   },
 ]);
 
