@@ -36,12 +36,14 @@
                                         <v-progress-linear
                                         v-model="timer"
                                         color="red"
+                                        striped
                                     ></v-progress-linear>
                                     </div>
                                     <div v-else>
                                         <v-progress-linear
                                         v-model="timer"
-                                        color="green"
+                                        color="secondary"
+                                        striped
                                     ></v-progress-linear>
                                     </div>
                                     
@@ -88,12 +90,6 @@
                                         </v-btn>
                                     </v-card-actions>
                                 </div>
-                                                            
-                                                      
-
-   
-                                                      
-    
                                 </v-card>
                             </v-expand-transition>
 
@@ -134,7 +130,6 @@
                                     rounded
                                     :ripple="{ center: true }"
                                     :style="{ 'background-color': 'aqua' }"
-                                
                                     class="mt-n5 mx-1 px-6"
                                     color="black"
                                     >
@@ -158,10 +153,10 @@
       quiz: false,
     }),
   setup() {
-    let canClick = true;
-    let timer = ref(100);
     let quizComplete = ref(false);
     let questionCounter = ref(0);
+    let nextQ = true;
+    let timer = ref(100);
     let score = ref(0);
     const currentQuestion = ref({
       question: "",
@@ -173,7 +168,7 @@
     const showQ = ref(true);
 
     const loadQuestion = () => {
-      canClick = true;
+      nextQ = true;
       
       if (questions.value.length > questionCounter.value) {
         showQ;
@@ -202,8 +197,7 @@
     };
  
     const onOptionClicked = (choice, item) => {
-      
-      if (canClick) {
+      if (nextQ) {
         const divContainer = itemsRef[item];
         const optionID = item + 1;
         
@@ -211,30 +205,23 @@
           score.value += 1;
           divContainer.classList.add("bg-green"); 
           divContainer.classList.remove("default"); 
-          
         } else {
           divContainer.classList.add("bg-red"); 
           divContainer.classList.remove("default"); 
-          
         }
-        canClick = false;
-
+        nextQ = false;
         clearSelected(divContainer);
         console.log(choice, item);
       } else {
-
         console.log("cannot click");
       }
     };
  
     const countDownTimer = function() {
       let interVal = setInterval(() => {
-    
         if (timer.value > 0) {
-
           timer.value--;
         } else {
-
           quizEnd();
           clearInterval(interVal);
         }
@@ -284,7 +271,7 @@
     };
 
     const quizStart = function() {
-      canClick = true;
+      nextQ = true;
       timer.value = 100;
       quizComplete.value = false;
       questionCounter.value = 0;
@@ -296,7 +283,6 @@
       };
 
       questions.value = [];
-
       fetchQuestionsFromServer();
     };
 
@@ -306,15 +292,15 @@
     return {
       timer,
       currentQuestion,
-      questions,
       score,
-      questionCounter,
       loadQuestion,
       onOptionClicked,
       optionChosen,
-      quizComplete,
-      quizEnd,
+      questions,
+      questionCounter,
       quizStart,
+      quizEnd,
+      quizComplete
     };
   },
 
@@ -354,17 +340,6 @@ h1 {
 h3 {
   font-weight: 500;
   letter-spacing: 3px;
-}
-
-.resultMsg {
-  width: 150px;
-  height: 150px;
-  line-height: 150px;
-  border-radius: 50%;
-  font-size: 20px;
-
-  text-align: center;
-  background: rgb(49, 49, 49);
 }
 
 .v-enter-active,
