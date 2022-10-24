@@ -29,6 +29,7 @@
                             <v-expand-transition>
                                 <v-card
                                 v-show="quiz"
+                                elevation="0"
                                 >
                                 <!-- timer container -->
                                 <v-card-text>
@@ -57,14 +58,14 @@
                                     </v-col>
                                     <v-col>
                                         <v-card-subtitle class="text-right">
-                                            {{ questionCounter }} of {{ questions.length }}
+                                            {{ questionNum }} of {{ questions.length }}
                                         </v-card-subtitle>
                                     </v-col>
                                 </v-row>
 
                                 <div>
                                 <v-card-text>
-                                        <p class="text-center">{{formattedQuestion}}</p>
+                                        <p class="text-center">{{questionChars}}</p>
                                     </v-card-text>
 
                                     <v-card-actions
@@ -154,7 +155,7 @@
     }),
   setup() {
     let quizComplete = ref(false);
-    let questionCounter = ref(0);
+    let questionNum = ref(0);
     let nextQ = true;
     let timer = ref(100);
     let score = ref(0);
@@ -170,13 +171,12 @@
     const loadQuestion = () => {
       nextQ = true;
       
-      if (questions.value.length > questionCounter.value) {
+      if (questions.value.length > questionNum.value) {
         showQ;
-        currentQuestion.value = questions.value[questionCounter.value];
-        questionCounter.value++;
+        currentQuestion.value = questions.value[questionNum.value];
+        questionNum.value++;
       } else {
         quizEnd();
-        
       }
     };
  
@@ -274,7 +274,7 @@
       nextQ = true;
       timer.value = 100;
       quizComplete.value = false;
-      questionCounter.value = 0;
+      questionNum.value = 0;
       score.value = 0;
       currentQuestion.value = {
         question: "",
@@ -297,7 +297,7 @@
       onOptionClicked,
       optionChosen,
       questions,
-      questionCounter,
+      questionNum,
       quizStart,
       quizEnd,
       quizComplete
@@ -305,7 +305,7 @@
   },
 
   computed: {
-    formattedQuestion() {
+    questionChars() {
       let entities = {
         amp: "&",
         apos: "'",
