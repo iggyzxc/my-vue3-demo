@@ -60,34 +60,34 @@
                                     </v-col>
                                 </v-row>
 
-                                                       <div :onChange="showQ">
-                                                        <v-card-text>
-                                                                <p class="text-center">{{formattedQuestion}}</p>
-                                                            </v-card-text>
+                                <div>
+                                <v-card-text>
+                                        <p class="text-center">{{formattedQuestion}}</p>
+                                    </v-card-text>
 
-                                                            <v-card-actions
-                                                                class="justify-center d-flex flex-wrap"
-                                                            >
-                                                                <v-btn
-                                                                v-for="(choice, item) in currentQuestion.choices" 
-                                                                :key="item"
-                                                                rounded="pill"
-                                                                variant="outlined"
-                                                                size="small"
-                                                                class="mx-1 my-1"
-                                                                >
-                                                                
-                                                                <!-- option name -->
-                                                                <div
-                                                                    class="default"
-                                                                    :ref="optionChosen"
-                                                                    @click="onOptionClicked(choice, item)"
-                                                                >
-                                                                    {{ choice }}
-                                                                </div>
-                                                                </v-btn>
-                                                            </v-card-actions>
-                                                       </div>
+                                    <v-card-actions
+                                        class="justify-center d-flex flex-wrap"
+                                    >
+                                        <v-btn
+                                        v-for="(choice, item) in currentQuestion.choices" 
+                                        :key="item"
+                                        rounded="pill"
+                                        variant="outlined"
+                                        size="small"
+                                        class="mx-1 my-1"
+                                        >
+                                        
+                                        <!-- option name -->
+                                        <div
+                                            class="default"
+                                            :ref="optionChosen"
+                                            @click="onOptionClicked(choice, item)"
+                                        >
+                                            {{ choice }}
+                                        </div>
+                                        </v-btn>
+                                    </v-card-actions>
+                                </div>
                                                             
                                                       
 
