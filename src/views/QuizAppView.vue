@@ -106,6 +106,7 @@
                         <v-card
                         style="height: 100%;"
                         >
+                        
                             <!-- quiz results -->
                             <v-card-title>
                                 <h3 class="text-center">Result</h3>

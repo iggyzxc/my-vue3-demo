@@ -7,6 +7,10 @@
           <span class="font-weight-light">Integrative Programming and Technologies 2 </span><span>Demonstration</span>
         </router-link>   
       </v-toolbar-title>
+      <v-btn
+        elevation="2"
+        @click="$store.dispatch('logout')"
+      >Logout</v-btn>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" absolute temporary ref="inner_nav" style="position:fixed;">
@@ -74,6 +78,8 @@
 
 <script setup>
 import { ref } from "vue";
+import { onBeforeMount } from 'vue';
+import { useStore } from 'vuex';
 
 
 const drawer = ref(false);

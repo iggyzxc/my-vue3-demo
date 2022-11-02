@@ -11,6 +11,8 @@ import VuetifyView from '../views/VuetifyView.vue'
 import CompApiView from '../views/CompApiView.vue'
 import AxiosView from '../views/AxiosView.vue'
 import QuizAppView from '../views/QuizAppView.vue'
+import Login from '../components/Login.vue'
+import { auth } from '../firebase'
 
 
 
@@ -18,7 +20,15 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Dashboard
+    component: Dashboard,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
   },
   {
     path: '/calculatorView',
@@ -88,6 +98,20 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login' && auth.currentUser) {
+    next('/')
+    return;
+  }
+
+  if (to.matched.some(record => record.meta.requiresAuth) && !auth.currentUser) {
+    next('/login')
+    return;
+  }
+
+  next();
 })
 
 export default router

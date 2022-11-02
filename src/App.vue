@@ -1,16 +1,28 @@
 <template>
-  <v-app>
+    <v-app v-if="$store.state.user">
     <v-main class="main bg-aqua">
       <NavBar/>
       <router-view/>
       <Footer></Footer>
     </v-main>
   </v-app>
-</template>
+  <div v-else="!show">
+    <Login/>
+  </div>
+</template> 
 
 <script setup>
+import { onBeforeMount } from 'vue';
+import { useStore } from 'vuex';
 import NavBar from './components/NavBar.vue';
 import Footer from './components/Footer.vue';
+import Login from './components/Login.vue';
+
+const store = useStore()
+onBeforeMount(() => {
+  store.dispatch('fetchUser')
+})
+
 </script>
 
 <style>
@@ -59,11 +71,11 @@ import Footer from './components/Footer.vue';
   }
 
 
-  /* removes the arrows */
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none; 
-}
+    /* removes the arrows */
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none; 
+  }
 </style>
