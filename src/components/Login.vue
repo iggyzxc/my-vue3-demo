@@ -1,108 +1,100 @@
 <!-- eslint-disable -->
 <template>
- <v-container class="my-10">
-    <v-row class="my-10">
-    <!-- First Card -->
-    <v-col>
-			<v-card 
-			class="mx-auto mt-9 description"
-			elevation="5"
-			max-width="500"
-			outlined>
-				<v-card-title class="text-center mt-8">
-				<h4>Register</h4>
-				</v-card-title>
-				<v-form class="mx-5 my-5" @submit.prevent="register">
-					
-					<v-text-field 
-						type="email" 
-						color="secondary" 
-						label="Email address"
-						v-model="register_form.email" />
-					<v-text-field
-						type="password" 
-						color="secondary" 
-						label="Password" 
-						v-model="register_form.password" />
-					<!-- <input 
-						type="submit" 
-						value="Register" />
-						<div class="text-center"> -->
-							<v-card-actions>
-					<v-col class="text-center">
-						<v-hover v-slot="{ hover }">
-						<v-btn
-						class="mr-4"
-						type="submit" 
-						value="Register"
-						:style="{'background-color': hover ? 'inherit' : 'aqua'}"
-						:ripple="{ center: true }"
-						elevation="4"
-						color="black"
-						plain
-						rounded
-						>
-						Submit
-						</v-btn>
-					</v-hover>
-					</v-col>
-				</v-card-actions>
-				</v-form>
-				
-			</v-card>
-			</v-col>
-
-			<v-col>
+	
+	<v-container class="my-10">
+		<v-row class="my-10">
+		<!-- First Card -->
+		<v-col>
 				<v-card 
 				class="mx-auto mt-9 description"
+				color="register"
 				elevation="5"
 				max-width="500"
 				outlined>
-				<v-card-title class="text-center mt-8">
-				<h4>Login</h4>
-				</v-card-title>
-					<v-form class="mx-5 my-5" @submit.prevent="login">
-						<v-text-field
-							type="email"
+					<v-card-title class="text-center mt-8">
+					<h5>Sign up</h5>
+					</v-card-title>
+					<v-form class="mx-5 my-5" @submit.prevent="register">
+						
+						<v-text-field 
+							type="email" 
 							color="secondary" 
 							label="Email address"
-							v-model="login_form.email" />
+							v-model="register_form.email" />
 						<v-text-field
 							type="password" 
 							color="secondary" 
 							label="Password" 
-							v-model="login_form.password" />
-							<v-card-actions>
+							v-model="register_form.password" />
+						<!-- <input 
+							type="submit" 
+							value="Register" />
+							<div class="text-center"> -->
+								<v-card-actions>
 						<v-col class="text-center">
-							<v-hover v-slot="{ hover }">
+						
 							<v-btn
 							class="mr-4"
 							type="submit" 
-							value="Login"
-							:style="{'background-color': hover ? 'inherit' : 'aqua'}"
-							:ripple="{ center: true }"
-							color="black"
+							value="Register"
 							elevation="4"
+							color="black"
 							plain
 							rounded
 							>
-							Login
+							Submit
 							</v-btn>
-							</v-hover>
+					
 						</v-col>
 					</v-card-actions>
 					</v-form>
-
 					
+				</v-card>
+				</v-col>
 
+				<v-col>
+					<v-card 
+					class="mx-auto mt-9 description"
+					color="login"
+					elevation="5"
+					max-width="500"
+					outlined>
+					<v-card-title class="text-center mt-8">
+					<h5>Login</h5>
+					</v-card-title>
+						<v-form class="mx-5 my-5" @submit.prevent="login">
+							<v-text-field
+								type="email"
+								color="secondary" 
+								label="Email address"
+								v-model="login_form.email" />
+							<v-text-field
+								type="password" 
+								color="secondary" 
+								label="Password" 
+								v-model="login_form.password" />
+								<v-card-actions>
+							<v-col class="text-center">
+								
+								<v-btn
+								class="mr-4"
+								type="submit" 
+								value="Login"
+								color="black"
+								elevation="4"
+								plain
+								rounded
+								>
+								Login
+								</v-btn>
+							
+							</v-col>
+						</v-card-actions>
+						</v-form>	
 				</v-card>
 			</v-col>
-	</v-row>
- </v-container>
-			
-
-
-
+		</v-row>
+	</v-container>
 </template>
 
 <script>
@@ -132,11 +124,11 @@ export default {
 <style>
 .description {
   text-align: center;
-  font-size: 15px;
 }
 
-h4 {
+h5 {
   font-weight: 350;
+  font-size: 35px;
   letter-spacing: 4px;
 }
 

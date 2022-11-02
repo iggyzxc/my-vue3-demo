@@ -6,7 +6,7 @@
       <Footer></Footer>
     </v-main>
   </v-app>
-  <div v-else="!show">
+  <div v-else>
     <Login/>
   </div>
 </template> 

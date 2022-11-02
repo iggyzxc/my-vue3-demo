@@ -7,8 +7,9 @@
           <span class="font-weight-light">Integrative Programming and Technologies 2 </span><span>Demonstration</span>
         </router-link>   
       </v-toolbar-title>
-      <v-btn
-        elevation="2"
+      <v-btn 
+        text
+        color="secondary"
         @click="$store.dispatch('logout')"
       >Logout</v-btn>
     </v-app-bar>
