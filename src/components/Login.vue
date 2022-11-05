@@ -26,10 +26,6 @@
 							color="secondary" 
 							label="Password" 
 							v-model="register_form.password" />
-						<!-- <input 
-							type="submit" 
-							value="Register" />
-							<div class="text-center"> -->
 								<v-card-actions>
 						<v-col class="text-center">
 						
@@ -100,6 +96,7 @@
 <script>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
+
 export default {
 	setup () {
 		const login_form = ref({});
