@@ -53,10 +53,10 @@
 </template>
 
 <script>
-import Rectangle from '@/components/shapes/Rectangle.vue';
-import Square from '@/components/shapes/Rectangle.vue';
-import Triangle from '@/components/shapes/Rectangle.vue';
-import Circle from '@/components/shapes/Rectangle.vue';
+// import Rectangle from '@/components/shapes/Rectangle.vue';
+// import Square from '@/components/shapes/Square.vue';
+// import Triangle from '@/components/shapes/Triangle.vue';
+// import Circle from '@/components/shapes/Circle.vue';
 
 export default {
   el: "#aCalc",

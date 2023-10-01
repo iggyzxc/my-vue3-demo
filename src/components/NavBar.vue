@@ -4,7 +4,7 @@
       <v-app-bar-nav-icon class="hamburger-color" @click="toggleDrawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="t-color">
         <router-link to="/">
-          <span class="font-weight-light">Integrative Programming and Technologies 2 </span><span>Demonstration</span>
+          <span class="font-weight-light">Vue.js Application </span><span>Demo</span>
         </router-link>   
       </v-toolbar-title>
       <v-btn 
@@ -24,7 +24,7 @@
             target="_blank"
           >
             <v-img
-              src="https://i.ibb.co/Hrzq6Rp/circle-profile-photo.png"
+              src="https://i.ibb.co/N1TNggn/aboutpic.png"
               alt="Iggy"
               class="my-2"
               max-height="120"
@@ -79,9 +79,8 @@
 
 <script setup>
 import { ref } from "vue";
-import { onBeforeMount } from 'vue';
-import { useStore } from 'vuex';
-
+// import { onBeforeMount } from 'vue';
+// import { useStore } from 'vuex';
 
 const drawer = ref(false);
 const items = ref([
@@ -92,10 +91,10 @@ const items = ref([
     title: "Basic Calculator", icon: "mdi-calculator-variant", path: "/calculatorView"
   },
   {
-    title: "String App",icon: "mdi-code-string",path: "/stringManView"
+    title: "Area Calculator", icon: "mdi-calculator", path: "/areaView"
   },
   {
-    title: "Area Calculator", icon: "mdi-calculator", path: "/areaView"
+    title: "String App",icon: "mdi-code-string",path: "/stringManView"
   },
   { 
     title: "Quiz App", icon: "mdi-alpha-a", path: "/quizAppView" 
